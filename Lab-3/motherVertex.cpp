@@ -37,16 +37,21 @@ int main()
 	for(int i = 0 ; i < v ; i++)
 		visited[i] = false;
 
+	int flag;
 
 	for(int i = 0 ; i < v ; i++)
 	{
-		int flag = 0;
+		flag = 0;
+		visited[i] = true;
 		dfs(adj, visited, v, i);
 
-		for(int j = 0 ; j < v && flag == 0 ; j++)
+		for(int j = 0 ; j < v ; j++)
 		{
 			if(visited[j] == false)
-				flag = 1; 
+			{
+				flag = 1;
+				break;
+			} 
 		}
 
 		if(flag == 0)
@@ -56,10 +61,32 @@ int main()
 		for(int j = 0 ; j < v ; j++)
 			visited[j] = false;
 
-		flag = 0;
 
 	}
+
+	delete []visited;
+	for(int i = 0 ; i < v ; i++)
+		delete[] adj[i];
+
+	delete[] adj;
 	
 	
 	return 0;
 }
+
+// sample i/o
+/*
+ i/p
+
+3 4
+
+0 1
+0 2
+1 2
+2 1
+
+o/p
+
+0
+
+/*

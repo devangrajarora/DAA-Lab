@@ -3,39 +3,22 @@ using namespace std;
 
 int c;
 
-void bfs(int **adj, bool *visited, int n, int sv)
+void dfs(int **adj, bool *visited, int n, int sv)
 {
 	c++;
-	queue<int> q;
+	visited[sv] = true;
+	cout << sv << "\t";
 	c++;
-	q.push(sv);
-	//visited[sv] = true;
-	c++;
-	while(!q.empty())
-	{
-		c++;
-		int p = q.front();
-		c++;
-		cout << p << "\t";
-		c++;
-		q.pop();
-		for(int i = 0 ; i < n ; i++, c++)
-		{
-			c++;
-			if(adj[p][i] == 1 && !visited[i])
-			{
-				visited[i] = true;
-				c++;
-				q.push(i);
-			}
 
-		}
-	}
+	for(int i = 0 ; i < n ; i++, c++)
+		if(adj[sv][i] == 1 && !visited[i])
+			dfs(adj, visited, n, i);
+		
 }
 
 int main()
 {
-	c++;
+	c = 0;
 	int v, e;
 	c++;
 	cin >> v >> e;
@@ -55,29 +38,27 @@ int main()
 	{
 		c++;
 		int l, r;
-		c++;
 		cin >> l >> r;
 		c++;
-		adj[l][r] = 1;
 		adj[r][l] = 1;
 	}
+
+	c++;
 
 	bool *visited = new bool[v];
 	for(int i = 0 ; i < v ; i++, c++)
 		visited[i] = false;
 
-	c++;
 	int sv;
 	c++;
 	cout << "Enter start vertex: ";
-	c++;
 	cin >> sv;
 	c++;
-	visited[sv] = true;
-	c++;
-	bfs(adj, visited, v, sv);
 
-	cout << "\nStep count: " << c;
+	cout << "dfs of transpose: ";
+	dfs(adj, visited, v, sv);
 	
+	cout << "\nStep count: " << c;
+
 	return 0;
 }
