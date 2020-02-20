@@ -66,7 +66,7 @@ int main()
 	if(flag == 0)
 		cout << "Connected graph";
 	else
-		cout << "Not Connected";
+		cout << "Graph not connected";
 	cout << "\nStep count: " << c;
 
 	return 0;

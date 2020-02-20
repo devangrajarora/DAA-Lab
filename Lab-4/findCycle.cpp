@@ -3,14 +3,25 @@ using namespace std;
 
 int c;
 
+// void printCycle(int **adj, bool *visited, int n, int sv)
+// {
+// 	visited[sv] =  true;
+// 	cout << sv << " ";
+// 	for(int i = 0 ; i < n ; i++, c++)
+// 		if(adj[sv][i] == 1)
+// 			printCycle(adj, visited, n, i);
+// }
+
 bool hasCycle(int **adj, bool *visited, int n, int sv)
 {
 	visited[sv] =  true;
 	c++;
+	// cout << sv << " ";
 
 	for(int i = 0 ; i < n ; i++, c++)
 		if(adj[sv][i] == 1)
 		{
+			//parent[i] = sv;
 			c++;
 			if(visited[i])
 				return true;
@@ -58,13 +69,34 @@ int main()
 			c++;
 			int sv;
 			c++;
-			cout << "Enter start vertex: ";
-			cin >> sv;
+			// cout << "Enter start vertex: ";
+			// cin >> sv;
 			c++;
-			if(hasCycle(adj, visited, v, sv))
-				cout << "Cycle exists";
-			else
-				cout << "No cycle";
+
+			// int parent[n];
+			// for(int i = 0 ; i < v ; i++)
+			// 	parent[i] = i;
+
+			for(int i = 0 ; i < v ; i++)
+			{
+				bool ans = hasCycle(adj, visited, v, i);
+				if(ans)
+				{
+					// printCycle(adj, visited, v, i);
+					cout << "Cycle exists";
+					cout << "\nStep count: " << c;
+					return 0;
+				}
+
+				for(int j = 0 ; j < v ; j++)
+					visited[j] = false;
+
+
+			}
+			// (hasCycle(adj, visited, v, 0))
+			// 	cout << "Cycle exists";
+			// else
+			cout << "No cycle";
 			c++;
 			cout << "\nStep count: " << c;
 
