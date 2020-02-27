@@ -44,7 +44,7 @@ int main()
 
 	cout << "Selected items are: ";
 	for(int i = 0 ; i < k ; i++)
-		cout << index[i] + 1 << " ";
+		cout << index[i] << " ";
 
 	return 0;
 }
