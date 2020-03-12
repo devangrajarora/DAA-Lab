@@ -53,15 +53,15 @@ mmax minmax(int a[], int low, int high)
 int main()
 {
     int n;
-    cout << "\n Enter the number of elements in the array\n";
+    cout << "\nEnter the number of elements in the array: ";
     cin >> n;
     int a[n];
-    cout << "\n Enter the elements in array\n";
+    cout << "Enter the elements in array: ";
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
     mmax x = minmax(a, 0, n - 1);
-    cout << "\n The maximum element is " << x.max << "\n";
-    cout << "\n The minimum element is " << x.min << "\n";
+    cout << "The maximum element is " << x.max << "\n";
+    cout << "The minimum element is " << x.min << "\n";
     return 0;
 }

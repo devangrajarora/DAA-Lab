@@ -38,16 +38,16 @@ void quickSort(int arr[], int low, int high)
 int main()  
 {  
     int n;c++;
-    cout<<"Enter size of array : ";c++;
+    cout<<"Enter size of array: ";c++;
     cin>>n;c++;
     int a[n];c++;
-    cout<<"Enter array elements :";c++;
+    cout<<"Enter array elements: ";c++;
     for(int i=0;i<n;i++)
     {    c++;
         cin>>a[i];c++;
     }c++;
     quickSort(a, 0, n - 1); c++; 
-    cout << "Sorted array:"; c++;
+    cout << "Sorted array: "; c++;
     for (int i = 0; i < n; i++)  
     {c++;
         cout << a[i] << " "; c++; 
