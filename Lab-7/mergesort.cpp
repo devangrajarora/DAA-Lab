@@ -1,27 +1,20 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int c=0;
 
-void display(int *array, int size) {
-   for(int i = 0; i<size; i++)
-   {c++;
-      cout << array[i] << " ";c++;
-   }c++;
-   cout << endl;c++;
-}
-void merge(int *array, int l, int m, int r) 
+void merge(int *a, int l, int m, int r) 
 {
    int i, j, k, nl, nr;
    c++;
    nl = m-l+1; c++;
    nr = r-m;c++;
-   int larr[nl], rarr[nr];
+   int la[nl], ra[nr];
    c++;
 
    for(i = 0; i<nl; i++)
    {
       c++;
-      larr[i] = array[l+i];c++;
+      la[i] = a[l+i];c++;
    }
 
    c++;
@@ -29,56 +22,63 @@ void merge(int *array, int l, int m, int r)
    for(j = 0; j<nr; j++)
    {
       c++;
-      rarr[j] = array[m+1+j];c++;
+      ra[j] = a[m+1+j];c++;
    }
    
    c++;
    
    i = 0; c++;j = 0;c++; k = l;c++;
-   while(i < nl && j<nr) {c++;
-      if(larr[i] <= rarr[j]) {c++;
-         array[k] = larr[i];c++;
+   while(i < nl && j<nr) 
+   {
+      if(la[i] <= ra[j]) {c++;
+         a[k] = la[i];c++;
          i++;c++;
       }else{c++;
-         array[k] = rarr[j];c++;
+         a[k] = ra[j];c++;
          j++;c++;
       }
       k++;c++;
    }c++;
    while(i<nl) {  c++;
-      array[k] = larr[i];c++;
+      a[k] = la[i];c++;
       i++; k++;c++;c++;
    }c++;
    while(j<nr) {c++;  
-      array[k] = rarr[j];c++;
+      a[k] = ra[j];c++;
       j++; k++;c++;c++;
    }c++;
 }
 
-void mergeSort(int *array, int l, int r) 
+void mergeSort(int *a, int l, int r) 
 {
    int m;c++;
-   if(l < r) {c++;
+   if(l < r) 
+   {
+      c++;
       int m = l+(r-l)/2;c++;
-      mergeSort(array, l, m);c++;
-      mergeSort(array, m+1, r);c++;
-      merge(array, l, m, r);c++;
+      mergeSort(a, l, m);c++;
+      mergeSort(a, m+1, r);c++;
+      merge(a, l, m, r);c++;
    }
 }
 int main() {
    int n;c++;
-   cout<<"Enter the number of elements: ";c++;
-   cin>>n;c++;
-   int arr[n];c++;
-   cout<<"Enter elements:";
+   cout << "Enter number of elements: ";c++;
+   cin >> n;c++;
+   int a[n];c++;
+
+   cout << "Enter elements:";
    c++;
    for(int i=0;i<n;i++){c++;
-      cin>>arr[i];c++;
-   }c++;
-   mergeSort(arr, 0, n-1);c++;
-   cout<<"Sorted Array: ";c++;
-   display(arr, n);c++;
+      cin >> a[i];c++;
+   }
 
-   cout<<"\n\nNo of steps : "<<c<<endl;
+   mergeSort(a, 0, n-1);c++;
+   cout << "Sorted Array: ";c++;
+   
+   for(int i = 0 ; i < n ; i++)
+      cout  <<  a[i]  <<  " ";
+
+   cout << "\n\nStep count : " << c << endl;
    return 0;
 }	

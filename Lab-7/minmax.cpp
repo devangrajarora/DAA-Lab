@@ -6,30 +6,32 @@ public:
     int min;
     int max;
 };
-mmax pairr;
+
+mmax obj;
+
 mmax minmax(int a[], int low, int high)
 {
     int mid;
 
     if (low == high)
     {
-        pairr.min = a[0];
-        pairr.max = a[0];
-        return pairr;
+        obj.min = a[0];
+        obj.max = a[0];
+        return obj;
     }
     if (high == low + 1)
     {
         if (a[low] > a[high])
         {
-            pairr.max = a[low];
-            pairr.min = a[high];
+            obj.max = a[low];
+            obj.min = a[high];
         }
         else
         {
-            pairr.max = a[high];
-            pairr.min = a[low];
+            obj.max = a[high];
+            obj.min = a[low];
         }
-        return pairr;
+        return obj;
     }
     else
     {
@@ -38,30 +40,30 @@ mmax minmax(int a[], int low, int high)
         mmax p2 = minmax(a, mid + 1, high);
 
         if (p1.max > p2.max)
-            pairr.max = p1.max;
+            obj.max = p1.max;
         else
-            pairr.max = p2.max;
+            obj.max = p2.max;
 
         if (p1.min < p2.min)
-            pairr.min = p1.min;
+            obj.min = p1.min;
         else
 
-            pairr.min = p2.min;
-        return pairr;
+            obj.min = p2.min;
+        return obj;
     }
 }
 int main()
 {
     int n;
-    cout << "\n Enter the number of elements in the array\n";
+    cout << "Enter no of elements: ";
     cin >> n;
     int a[n];
-    cout << "\n Enter the elements in array\n";
+    cout << "Enter elements: ";
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
-    mmax x = minmax(a, 0, n - 1);
-    cout << "\n The maximum element is " << x.max << "\n";
-    cout << "\n The minimum element is " << x.min << "\n";
+    mmax p = minmax(a, 0, n - 1);
+    cout << "The maximum element is " << p.max << "\n";
+    cout << "The minimum element is " << p.min << "\n";
     return 0;
 }

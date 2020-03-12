@@ -53,7 +53,7 @@ int main()
         cout << a[i] << " "; c++; 
     } c++;
     cout<<endl;
-    cout<<"No of Steps: "<<c;
+    cout<<"Step Count: " << c;
 
     return 0;  
 }  
