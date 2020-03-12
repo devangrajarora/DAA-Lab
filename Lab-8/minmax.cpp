@@ -55,7 +55,6 @@ mmax minmax(int a[], int low, int high)
 int main()
 {
     int n;
-<<<<<<< HEAD:Lab-7/minmax.cpp
     cout << "Enter no of elements: ";
     cin >> n;
     int a[n];
@@ -66,17 +65,6 @@ int main()
     mmax p = minmax(a, 0, n - 1);
     cout << "The maximum element is " << p.max << "\n";
     cout << "The minimum element is " << p.min << "\n";
-=======
-    cout << "\nEnter the number of elements in the array: ";
-    cin >> n;
-    int a[n];
-    cout << "Enter the elements in array: ";
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
 
-    mmax x = minmax(a, 0, n - 1);
-    cout << "The maximum element is " << x.max << "\n";
-    cout << "The minimum element is " << x.min << "\n";
->>>>>>> 019bf7ea14b65150c6dcc59a09aef6cf5f3f5b1e:Lab-8/minmax.cpp
     return 0;
 }
